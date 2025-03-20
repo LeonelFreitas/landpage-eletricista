@@ -35,7 +35,7 @@ const ElectricianLandingPage = () => {
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-4 flex justify-between items-center shadow-lg">
-        <div className="flex items-center gap-4 pl-14">
+        <div className="flex items-center gap-2 pl-4 md:gap-4 md:pl-14">
           {/* Ícone da casa */}
           <img
             src="/house.png" // Caminho para o arquivo na pasta public
@@ -84,65 +84,85 @@ const ElectricianLandingPage = () => {
         {/* Menu Hambúrguer para Mobile */}
         <div className="md:hidden">
           <button
-            onClick={() => setMenuOpen(!menuOpen)} // Alterna o estado do menu
+            onClick={() => {
+              setMenuOpen(!menuOpen);
+              document.body.style.overflow = menuOpen ? "auto" : "hidden"; // Bloqueia ou libera o scroll
+            }}
             className="text-white text-2xl focus:outline-none"
           >
-            {menuOpen ? <FaTimes /> : <FaBars />} {/* Ícone de abrir/fechar */}
+            {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </header>
 
       {/* Menu Mobile */}
-      <div
-        className={`fixed top-0 right-0 bg-gradient-to-r from-blue-700 to-blue-900 text-white flex flex-col items-start gap-6 py-6 px-6 shadow-lg transform transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"
-          } z-50 w-64 h-screen`}
-      >
-        {/* Botão de Fechar */}
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="self-end text-2xl focus:outline-none"
-        >
-          <FaTimes />
-        </button>
+      {menuOpen && (
+        <>
+          {/* Overlay para desfoque no conteúdo abaixo do header */}
+          <div
+            className="fixed top-[64px] left-0 w-full h-[calc(100%-64px)] bg-black bg-opacity-30 backdrop-blur-[2px] z-30"
+            onClick={() => {
+              setMenuOpen(false);
+              document.body.style.overflow = "auto"; // Libera o scroll da página
+            }}
+          ></div>
 
-        {/* Links do Menu */}
-        <Link
-          to="hero"
-          smooth={true}
-          duration={500}
-          className="cursor-pointer hover:text-yellow-400 transition text-lg"
-          onClick={() => setMenuOpen(false)}
-        >
-          Início
-        </Link>
-        <Link
-          to="services"
-          smooth={true}
-          duration={500}
-          className="cursor-pointer hover:text-yellow-400 transition text-lg"
-          onClick={() => setMenuOpen(false)}
-        >
-          Serviços
-        </Link>
-        <Link
-          to="about"
-          smooth={true}
-          duration={500}
-          className="cursor-pointer hover:text-yellow-400 transition text-lg"
-          onClick={() => setMenuOpen(false)}
-        >
-          Sobre Nós
-        </Link>
-        <Link
-          to="contact"
-          smooth={true}
-          duration={500}
-          className="cursor-pointer hover:text-yellow-400 transition text-lg"
-          onClick={() => setMenuOpen(false)}
-        >
-          Contato
-        </Link>
-      </div>
+          {/* Menu */}
+          <div
+            className="absolute top-[64px] left-0 w-full bg-gray-100 text-gray-900 flex flex-col items-center gap-4 py-4 shadow-md z-50"
+          >
+            {/* Links do Menu */}
+            <Link
+              to="hero"
+              smooth={true}
+              duration={500}
+              className="text-lg font-medium text-gray-900 hover:text-blue-700 transition"
+              onClick={() => {
+                setMenuOpen(false);
+                document.body.style.overflow = "auto"; // Libera o scroll da página
+              }}
+            >
+              Início
+            </Link>
+            <Link
+              to="services"
+              smooth={true}
+              duration={500}
+              className="text-lg font-medium text-gray-900 hover:text-blue-700 transition"
+              onClick={() => {
+                setMenuOpen(false);
+                document.body.style.overflow = "auto"; // Libera o scroll da página
+              }}
+            >
+              Serviços
+            </Link>
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              className="text-lg font-medium text-gray-900 hover:text-blue-700 transition"
+              onClick={() => {
+                setMenuOpen(false);
+                document.body.style.overflow = "auto"; // Libera o scroll da página
+              }}
+            >
+              Sobre Nós
+            </Link>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="text-lg font-medium text-gray-900 hover:text-blue-700 transition"
+              onClick={() => {
+                setMenuOpen(false);
+                document.body.style.overflow = "auto"; // Libera o scroll da página
+              }}
+            >
+              Contato
+            </Link>
+          </div>
+        </>
+      )}
 
       {/* Hero Section com Filtro e Imagem Desfocada */}
       <section
@@ -324,7 +344,7 @@ const ElectricianLandingPage = () => {
         <p className="text-sm">
           Desenvolvido por{" "}
           <a
-            href="https://github.com/Leonel"
+            href="https://www.linkedin.com/in/leonel-freitas-4787aa223/"
             target="_blank"
             rel="noreferrer"
             className="underline hover:text-yellow-500"
@@ -371,11 +391,90 @@ const App = () => {
 
 const MultiStepFormPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans p-8">
-      <h1 className="text-4xl font-bold mb-8">Solicite um Orçamento</h1>
-      <MultiStepForm />
+    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans flex flex-col">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-4 flex justify-between items-center shadow-lg">
+        <div className="flex items-center gap-2 pl-4 md:gap-4 md:pl-14">
+          <img
+            src="/house.png"
+            alt="Ícone de casa"
+            className="w-8 h-8 md:w-10 md:h-10"
+          />
+          <h1 className="text-4xl font-bold tracking-wide">D.Elétrica</h1>
+        </div>
+
+        {/* Links do Menu */}
+        <nav className="hidden md:flex gap-8 mr-20">
+          <a
+            href="/#hero"
+            className="cursor-pointer hover:text-yellow-400 transition"
+          >
+            Início
+          </a>
+          <a
+            href="/#services"
+            className="cursor-pointer hover:text-yellow-400 transition"
+          >
+            Serviços
+          </a>
+          <a
+            href="/#about"
+            className="cursor-pointer hover:text-yellow-400 transition"
+          >
+            Sobre Nós
+          </a>
+          <a
+            href="/#contact"
+            className="cursor-pointer hover:text-yellow-400 transition"
+          >
+            Contato
+          </a>
+        </nav>
+      </header>
+
+      {/* Conteúdo do Formulário */}
+      <main className="flex-grow p-8">
+        <h1 className="text-4xl font-bold mb-8 text-center">Solicitar um Orçamento</h1>
+        <MultiStepForm />
+      </main>
+
+      {/* Botão de WhatsApp */}
+      <div className="fixed bottom-4 right-4 group flex items-center">
+        <span
+          className="mr-2 bg-gray-900 text-white text-sm px-2 py-1 rounded transition-opacity opacity-0 group-hover:opacity-100"
+        >
+          Fale Conosco
+        </span>
+        <a
+          href="https://wa.me/55249996414077"
+          target="_blank"
+          rel="noreferrer"
+          className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 flex items-center justify-center"
+        >
+          <FaPhoneAlt className="text-2xl" />
+        </a>
+      </div>
+
+      {/* Footer Fixo */}
+      <footer className="bg-gray-900 text-white p-4 text-center w-full fixed bottom-0">
+        <p className="text-sm">© 2025 Dudu Eletricista. Todos os direitos reservados.</p>
+        <p className="text-sm">
+          Desenvolvido por{" "}
+          <a
+            href="https://www.linkedin.com/in/leonel-freitas-4787aa223/"
+            target="_blank"
+            rel="noreferrer"
+            className="underline hover:text-yellow-500"
+          >
+            Leonel Freitas
+          </a>
+        </p>
+      </footer>
     </div>
   );
 };
 
 export default App;
+
+
+
