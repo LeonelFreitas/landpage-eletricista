@@ -295,15 +295,15 @@ const ElectricianLandingPage = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <FaPhoneAlt className="text-2xl text-yellow-400" />
-                <p className="text-lg font-medium">(24) 999641 - 4077</p>
+                <p className="text-lg font-medium">(24) 9996 - 44077</p>
               </div>
               <div className="flex items-center gap-4">
                 <FaEnvelope className="text-2xl text-yellow-400" />
-                <p className="text-lg font-medium">contato@eletricistaexpert.com</p>
+                <p className="text-lg font-medium">dudu1000oliveira@gmail.com</p>
               </div>
               <div className="flex items-center gap-4">
                 <FaMapMarkerAlt className="text-2xl text-yellow-400" />
-                <p className="text-lg font-medium">Rua Exemplo, 123 - Centro, RJ</p>
+                <p className="text-lg font-medium">Volta Redonda - RJ</p>
               </div>
             </div>
           </div>
@@ -340,7 +340,7 @@ const ElectricianLandingPage = () => {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white p-4 text-center">
-        <p className="text-sm">© 2025 Dudu Eletricista . Todos os direitos reservados.</p>
+        <p className="text-sm">© 2025  D.Elétrica. Todos os direitos reservados.</p>
         <p className="text-sm">
           Desenvolvido por{" "}
           <a
@@ -366,7 +366,7 @@ const ElectricianLandingPage = () => {
 
         {/* Botão de WhatsApp */}
         <a
-          href="https://wa.me/55249996414077" // Link direto para o WhatsApp com o número
+          href="https://wa.me/5524999644077" // Link direto para o WhatsApp com o número
           target="_blank"
           rel="noreferrer"
           className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 flex items-center justify-center"
@@ -446,7 +446,7 @@ const MultiStepFormPage = () => {
           Fale Conosco
         </span>
         <a
-          href="https://wa.me/55249996414077"
+          href="https://wa.me/5524999644077"
           target="_blank"
           rel="noreferrer"
           className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 flex items-center justify-center"
@@ -457,7 +457,7 @@ const MultiStepFormPage = () => {
 
       {/* Footer Fixo */}
       <footer className="bg-gray-900 text-white p-4 text-center w-full fixed bottom-0">
-        <p className="text-sm">© 2025 Dudu Eletricista. Todos os direitos reservados.</p>
+        <p className="text-sm">© 2025 D.Elétrica. Todos os direitos reservados.</p>
         <p className="text-sm">
           Desenvolvido por{" "}
           <a
