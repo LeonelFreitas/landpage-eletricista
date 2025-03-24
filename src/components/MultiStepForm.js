@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com"; // Importa o EmailJS
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1); // Controle da etapa atual
@@ -60,13 +61,44 @@ const MultiStepForm = () => {
       return;
     }
 
-    // Exibe a tela de confirmação
-    setIsSubmitted(true);
+    // Configuração do EmailJS
+    const templateParams = {
+      nome: formData.nome,
+      telefone: formData.telefone,
+      email: formData.email,
+      rua: formData.endereco.rua,
+      numero: formData.endereco.numero,
+      bairro: formData.endereco.bairro,
+      cidade: formData.endereco.cidade,
+      cep: formData.endereco.cep,
+      tipoServico: formData.tipoServico,
+      descricao: formData.descricao,
+      urgencia: formData.urgencia,
+      detalhesServico: formData.detalhesServico,
+    };
 
-    // Redireciona para a página principal após 5 segundos
-    setTimeout(() => {
-      navigate("/");
-    }, 5000);
+    emailjs
+      .send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        process.env.REACT_APP_EMAILJS_USER_ID 
+      )
+      .then(
+        (response) => {
+          console.log("Email enviado com sucesso!", response.status, response.text);
+          setIsSubmitted(true);
+
+          // Redireciona para a página principal após 5 segundos
+          setTimeout(() => {
+            navigate("/");
+          }, 5000);
+        },
+        (error) => {
+          console.error("Erro ao enviar o email:", error);
+          alert("Ocorreu um erro ao enviar o formulário. Tente novamente.");
+        }
+      );
   };
 
   if (isSubmitted) {
