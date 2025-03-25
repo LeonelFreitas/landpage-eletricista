@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { FaBolt, FaWrench, FaPhoneAlt, FaTools, FaEnvelope, FaMapMarkerAlt, FaBars, FaTimes } from "react-icons/fa";
+import { FaBolt, FaWrench, FaPhoneAlt, FaTools, FaEnvelope, FaMapMarkerAlt, FaBars, FaTimes, FaLightbulb, FaSolarPanel, FaChargingStation, FaNetworkWired } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./index.css";
@@ -42,7 +42,7 @@ const ElectricianLandingPage = () => {
             alt="Ícone de casa"
             className="w-8 h-8 md:w-10 md:h-10" // Tamanho do ícone
           />
-          <h1 className="text-4xl font-bold tracking-wide">D.Elétrica</h1>
+          <h1 className="text-4xl font-bold tracking-wide">D. Elétrica</h1>
         </div>
 
         {/* Links do Menu para Desktop */}
@@ -195,60 +195,111 @@ const ElectricianLandingPage = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-16 px-8 bg-gray-50 text-center" data-aos="fade-up">
+      <section id="services" className="py-16 bg-gray-50 text-center" data-aos="fade-up">
         <h3 className="text-5xl font-extrabold text-blue-700 mb-12">
           Nossos Serviços
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Serviço 1 */}
-          <div
-            className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
-            data-aos="fade-up"
-          >
-            <FaBolt className="text-blue-600 text-6xl mb-6 mx-auto" />
-            <h4 className="text-2xl font-bold mb-4">Instalações Elétricas</h4>
-            <p className="text-gray-600">
-              Projetos completos para residências, comércios e indústrias com segurança e eficiência.
-            </p>
-          </div>
+        <div className="container mx-auto px-12 sm:px-12 lg:px-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+            {/* Serviço 1 */}
+            <div
+              className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              data-aos="fade-up"
+            >
+              <FaBolt className="text-blue-600 text-6xl mb-6 mx-auto" />
+              <h4 className="text-2xl font-bold mb-4">Instalações Elétricas</h4>
+              <p className="text-gray-600">
+                Projetos completos para residências, comércios e indústrias com segurança e eficiência.
+              </p>
+            </div>
 
-          {/* Serviço 2 */}
-          <div
-            className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <FaWrench className="text-blue-600 text-6xl mb-6 mx-auto" />
-            <h4 className="text-2xl font-bold mb-4">Manutenção Preventiva</h4>
-            <p className="text-gray-600">
-              Evite problemas futuros com revisões periódicas e diagnósticos precisos.
-            </p>
-          </div>
+            {/* Serviço 2 */}
+            <div
+              className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <FaWrench className="text-blue-600 text-6xl mb-6 mx-auto" />
+              <h4 className="text-2xl font-bold mb-4">Manutenção Preventiva</h4>
+              <p className="text-gray-600">
+                Evite problemas futuros com revisões periódicas e diagnósticos precisos.
+              </p>
+            </div>
 
-          {/* Serviço 3 */}
-          <div
-            className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <FaPhoneAlt className="text-blue-600 text-6xl mb-6 mx-auto" />
-            <h4 className="text-2xl font-bold mb-4">Atendimento Emergencial</h4>
-            <p className="text-gray-600">
-              Disponível 24h para resolver problemas elétricos com rapidez e eficiência.
-            </p>
-          </div>
+            {/* Serviço 3 */}
+            <div
+              className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <FaPhoneAlt className="text-blue-600 text-6xl mb-6 mx-auto" />
+              <h4 className="text-2xl font-bold mb-4">Atendimento Emergencial</h4>
+              <p className="text-gray-600">
+                Disponível 24h para resolver problemas elétricos com rapidez e eficiência.
+              </p>
+            </div>
 
-          {/* Serviço 4 */}
-          <div
-            className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <FaTools className="text-blue-600 text-6xl mb-6 mx-auto" />
-            <h4 className="text-2xl font-bold mb-4">Automação Residencial</h4>
-            <p className="text-gray-600">
-              Controle sua casa com tecnologias modernas e práticas para mais conforto.
-            </p>
+            {/* Serviço 4 */}
+            <div
+              className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <FaTools className="text-blue-600 text-6xl mb-6 mx-auto" />
+              <h4 className="text-2xl font-bold mb-4">Automação Residencial</h4>
+              <p className="text-gray-600">
+                Controle sua casa com tecnologias modernas e práticas para mais conforto.
+              </p>
+            </div>
+
+            {/* Últimos 4 Serviços */}
+            <div
+              className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <FaLightbulb className="text-blue-600 text-6xl mb-6 mx-auto" />
+              <h4 className="text-2xl font-bold mb-4">Iluminação Inteligente</h4>
+              <p className="text-gray-600">
+                Instalação e configuração de sistemas de iluminação inteligente para maior eficiência e conforto.
+              </p>
+            </div>
+
+            <div
+              className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <FaSolarPanel className="text-blue-600 text-6xl mb-6 mx-auto" />
+              <h4 className="text-2xl font-bold mb-4">Energia Solar</h4>
+              <p className="text-gray-600">
+                Projetos e instalação de sistemas de energia solar para economia e sustentabilidade.
+              </p>
+            </div>
+
+            <div
+              className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              data-aos="fade-up"
+              data-aos-delay="600"
+            >
+              <FaChargingStation className="text-blue-600 text-6xl mb-6 mx-auto" />
+              <h4 className="text-2xl font-bold mb-4">Carregadores Veiculares</h4>
+              <p className="text-gray-600">
+                Instalação de carregadores para veículos elétricos em residências e empresas.
+              </p>
+            </div>
+
+            <div
+              className="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              data-aos="fade-up"
+              data-aos-delay="700"
+            >
+              <FaNetworkWired className="text-blue-600 text-6xl mb-6 mx-auto" />
+              <h4 className="text-2xl font-bold mb-4">Infraestrutura de Redes</h4>
+              <p className="text-gray-600">
+                Planejamento e instalação de redes estruturadas para residências e escritórios.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -339,8 +390,8 @@ const ElectricianLandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white p-4 text-center">
-        <p className="text-sm">© 2025  D.Elétrica. Todos os direitos reservados.</p>
+      <footer className="bg-gray-900 text-white p-4 text-center w-full">
+        <p className="text-sm">© 2025 D.Elétrica. Todos os direitos reservados.</p>
         <p className="text-sm">
           Desenvolvido por{" "}
           <a
@@ -390,6 +441,8 @@ const App = () => {
 };
 
 const MultiStepFormPage = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false); // Estado para controlar o envio do formulário
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans flex flex-col">
       {/* Header */}
@@ -433,9 +486,11 @@ const MultiStepFormPage = () => {
       </header>
 
       {/* Conteúdo do Formulário */}
-      <main className="flex-grow p-8">
-        <h1 className="text-4xl font-bold mb-8 text-center">Solicitar um Orçamento</h1>
-        <MultiStepForm />
+      <main className="flex-grow p-8 mb-16">
+        {!isSubmitted && ( // Exibe o título apenas se o formulário não foi enviado
+          <h1 className="text-4xl font-bold mb-8 text-center">Solicitar um Orçamento</h1>
+        )}
+        <MultiStepForm isSubmitted={isSubmitted} setIsSubmitted={setIsSubmitted} />
       </main>
 
       {/* Botão de WhatsApp */}
