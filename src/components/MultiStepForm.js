@@ -86,14 +86,6 @@ const MultiStepForm = ({ isSubmitted, setIsSubmitted }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "email") {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) {
-        toast.error("Por favor, insira um email válido.");
-        return;
-      }
-    }
-
     if (name.includes("endereco.")) {
       const field = name.split(".")[1];
       setFormData((prev) => ({
@@ -252,6 +244,12 @@ const MultiStepForm = ({ isSubmitted, setIsSubmitted }) => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                onBlur={(e) => {
+                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                  if (!emailRegex.test(e.target.value)) {
+                    toast.error("Por favor, insira um email válido.");
+                  }
+                }}
                 placeholder="Digite seu e-mail"
                 className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
