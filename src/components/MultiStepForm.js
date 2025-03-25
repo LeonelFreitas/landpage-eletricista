@@ -53,9 +53,19 @@ const MultiStepForm = ({ isSubmitted, setIsSubmitted }) => {
   const handleNext = (e) => {
     e.preventDefault(); // Impede o comportamento padrão do formulário
 
-    if (step === 1 && (!formData.nome || !formData.telefone || !formData.email)) {
-      toast.error("Por favor, preencha todos os campos da etapa 1.");
-      return;
+    if (step === 1) {
+      // Validação dos campos da etapa 1
+      if (!formData.nome || !formData.telefone || !formData.email) {
+        toast.error("Por favor, preencha todos os campos da etapa 1.");
+        return;
+      }
+
+      // Validação do email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        toast.error("Por favor, insira um email válido.");
+        return;
+      }
     }
 
     if (
